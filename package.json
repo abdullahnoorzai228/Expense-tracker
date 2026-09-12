@@ -15,7 +15,7 @@
     "@capacitor/core": "latest"
   },
   "devDependencies": {
-    "@capacitor/cli": "latest"
+    "@capacitor/cli": "latest",
     "@capacitor/assets": "latest"
   }
 }
