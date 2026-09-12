@@ -17,7 +17,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 20
           
       - name: Setup Java
         uses: actions/setup-java@v4
@@ -28,11 +28,13 @@ jobs:
       - name: Install packages
         run: npm install
 
-      - name: Install Capacitor Android
-        run: npm install @capacitor/android
-
       - name: Create Android project
         run: npx cap add android
+
+      - name: Put Briefcase icon
+        run: |
+          cp www/Briefcase.png android/app/src/main/res/drawable/briefcase.png
+          sed -i 's#android:icon="@mipmap/ic_launcher"#android:icon="@drawable/briefcase"#' android/app/src/main/AndroidManifest.xml
 
       - name: Sync project
         run: npx cap sync android
